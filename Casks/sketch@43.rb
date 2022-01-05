@@ -1,11 +1,16 @@
 cask "sketch-at-43" do
-  version "43.2-39069"
+  version "43.2,39069"
   sha256 "4a67e22b0f0794f8ccc2be169236b7d5baf0f8a02082dcb3d4e2a41fd2ad4c13"
 
-  url "https://download.sketchapp.com/sketch-#{version}.zip"
+  url "https://download.sketch.com/sketch-#{version.csv.first}-#{version.csv.second}.zip"
   name "Sketch"
   desc "Digital design and prototyping platform"
   homepage "https://www.sketchapp.com/"
+
+  livecheck do
+    url "https://download.sketch.com/sketch-versions.xml"
+    strategy :sparkle
+  end
 
   app "Sketch.app"
 
